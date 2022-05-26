@@ -223,7 +223,6 @@ Furthermore the script is also flexible in its use case application such that it
 ```python s=
 import HTML
 import JSON
-import txt
 import XML
 ```
 just to name a few allowing fexibilty over the type of data utilized 
