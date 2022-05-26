@@ -2,7 +2,7 @@
 
 ## Project Overview
 ### <ins> Purpose </ins>
-The following anaylsis generates a vote count report using an automated python loop in order to generate the election audit results so that they maybe submitted to the election commission, whre teh analysis output file genreated displays the following information as requested:
+The following anaylsis generates a vote count report using an automated python loop in order to generate the election audit results so that they maybe submitted to the election commission, where the analysis output file generated displays the following information as requested:
 
    1. The <ins>**total number**</ins> of votes casted.
    2. The complete list of <ins>**counties**</ins> in the congressional precinct. 
@@ -16,12 +16,12 @@ The following anaylsis generates a vote count report using an automated python l
    
   
 ### <ins>Background</ins>
-In order to accomplsh the following task, raw data was collected from the Colarado Preceints in question through the following 3 methods:
+In order to accomplish the following task, raw data was collected from the Colorado Congressional Precincts in question through the following 3 methods:
   1. <ins>**Mail-in ballots**</ins> - that are initially sent to the central office by eligible voters to then be hand-counted and recorded.
   2. <ins>**Punch cards**</ins>- A traditional analogue way of collecting votes using an automated teller to tally, record, and transmit the data 
   3. <ins>**DRE**</ins> - i.e. direct-recording electronic counting such that memory cards are utilised and read by a computer in order to store information and electronically transmit the data to the central office.
 
-Once all the votes ahd been casted, tallied, and officially recorded, a .csv file containing three columns referring to 
+Once all the votes had been casted, tallied, and officially recorded, a .csv file containing three columns referring to 
 
 
 1. Ballot ID (Column A)   
@@ -29,14 +29,14 @@ Once all the votes ahd been casted, tallied, and officially recorded, a .csv fil
 3. Candidate [Name] (Column C)
      
   
-had been created so that further back end processing using **python script** could be done with ease with VS Code being the IDE (Integrated Development Environment (IDE) of choice. A [copy](resources/election_results.csv) of the elction data used can be found following the specified link, while the final results were written on a .txt file that can be found [here](Analysis/election_results.txt)
+had been created so that further back end processing using **python script** could be done with ease with VS Code being the IDE (Integrated Development Environment (IDE) of choice. A [copy](resources/election_results.csv) of the election data used can be found following the specified link, while the final results were written on a .txt file that can be found [here](Analysis/election_results.txt)
 
 
 ## <ins>Results</ins>
 The final results as provided by the script into the [election_analysis.txt](analysis/election_results.txt) can be summarized into two sections, by candidate and then by county, and are summarized below:
 
 ### <ins>By Candidate</ins>
-- The quiantitative analysis of the electorial cadidates shows:
+- The quantitative analysis of the electorial candidates shows:
   - There were **369,711** votes cast in the election.
 - The electorial candidates who ran for a position were:
     - Charles Casper Stockham
@@ -46,10 +46,10 @@ The final results as provided by the script into the [election_analysis.txt](ana
     - Charles Casper Stockham received **85,213** votes implying a **23.0%** voter share.
     - Diana DeGette received **272,892%** votes implying a **73.8%** voter share
     - Raymon Anthony Doane received **11,606%** vote implying a **3.1%** voter share.
-- The winner of the election decisivly being <ins>**Diana DeGette**</ins>
+- The winner of the election decisively  being <ins>**Diana DeGette**</ins>
 
 ### <ins>By County</ins>
-- A quantitavie analysis of the electorial resuls by counts shows us that:
+- A quantitativie analysis of the electorial results by counts shows us that:
 - The counties results were:
     - Jefferson with a **10.5%** voter turnout of the total count and an accumulated **38,855** votes having been casted.
     - Denver with an **82.8%** voter turnout of the total count and an accumulated **306,055** votes having been casted.
@@ -66,7 +66,7 @@ The final output as displayed by the [election_analysis.txt](analysis/election_r
 
 ### <ins>Overview of the methods and code</ins>
 #### <ins>Open, read & write the file</ins>
-In order to get started with the .csv file in our IDE, we must first open and read the data as well as create a seperate writable file in order to store our output results.
+In order to get started with the .csv file in our IDE, we must first open and read the data as well as create a separate writable file in order to store our output results.
 
 ***1. Import dependencies.***
 
@@ -90,7 +90,7 @@ import os
 file_to_load = os.path.join("Resources", "election_results.csv")
 ```
 
-:exclamation: Directory has to be provided exactly, letter case matters as i found out the hard way when encoutering a erronous space in the name of my file but not wehn recalled within the path.
+:exclamation: Directory has to be provided exactly, letter case matters as i found out the hard way when encountering n erroneous space in the name of my file but not when recalled within the path.
 
 ***3. Open and read the file.***
 
@@ -133,7 +133,7 @@ Similar to our `file_to_load` This line of code will create a file called "*elec
 ```python s=
 with open(file_to_save, "w") as txt_file:
 ```
-In this function, we specified the method `“w”` as the file needs to be editied and so has to be `writable` as comapred to `“r"` which would imply that the file should need only be `readable`.
+In this function, we specified the method `“w”` as the file needs to be edited and so has to be `writable` as compared to `“r"` which would imply that the file should need only be `readable`.
 
 ```python s=
 txt_file.write(election_results)
@@ -170,11 +170,11 @@ Click to enlarge images
         # Add a vote to that candidate's count
         candidate_votes[candidate_name] += 1
 ```
-The script above was used to itterate through rows *both* when accumulating results for cadidate and county replacing the neccessary variables as needed (refer to images for python script). The pyton script makes use of both lists and dictionaries as due to the difference in their properties where the differ in terms of mutability and indexing i.e. lists are ordered (indexed) whereas dictionalries are not 
+The script above was used to iterate through rows *both* when accumulating results for candidate and county replacing the necessary variables as needed (refer to images for python script). The python script makes use of both lists and dictionaries as due to the difference in their properties where the differ in terms of mutability and indexing i.e. lists are ordered (indexed) whereas dictionaries are not 
 
 #### <ins>Retrieving values </ins>
 
-There are two ways to retrive values from a dictionary using theier unique keys. The utilization of either syntax - **"square brackets"** or  **"get()" function** - While each code makes use of different variables in order to analyze a different scenario, the variables are replacable whereas the syntax stands. Use of either of the syntax's return the same result ceteris paribus but the use case is scenario dependant e.g should you expect an error when running your retreival, he get() funtion returns "None" or a default value of your choice, if the key is not found and so may prove easier to debug in the long run:
+There are two ways to retrieve values from a dictionary using their unique keys. The utilization of either syntax - **"square brackets"** or  **"get()" function** - While each code makes use of different variables in order to analyze a different scenario, the variables are replaceable whereas the syntax stands. Use of either of the syntax's return the same result ceteris paribus but the use case is scenario dependent e.g should you expect an error when running your retrieval, he get() function returns "None" or a default value of your choice, if the key is not found and so may prove easier to debug in the long run:
 
 using square brackets:
 
@@ -205,7 +205,7 @@ if (county > winning_county) and (county_percentage > county_finalist_percentage
 All variables were previously created and initialized either as an integer or string. The script starts an if statement comparing individual values against each other such that if the condition holds true, the initialized variable then holds the *New highest value* and then passed down to the new variables `winning_count` `winning_candidate` ` winning_percentage` ` winning_county` ` county_finalist`.
 
 ## <ins>Summary </ins>
-The Written script analyzes and examines the data quickly and effeciently demonstrating the power in automation using python scripture processing and returning final results for the electiorial race in Colarado. 
+The Written script analyzes and examines the data quickly and efficiently demonstrating the power in automation using python scripture processing and returning final results for the electorial race in Colorado. 
 
 This code will automatically:
 - find candidates names,
@@ -216,9 +216,9 @@ This code will automatically:
 - declare a candidate winner based upon the highest vote count and % (displaying both pieces of information),
 - output all the above into a separate .txt file 
 
-Furthermore the script is also flexible in its use case application such that it can be further adopetd in a number of ways to:
+Furthermore, the script is also flexible in its use case application such that it can be further adapetd in a number of ways to:
 
-- While his code currently reads csv files, it can be ammended to read other file formats when importing our dependancies i.e. 
+- While his code currently reads csv files, it can be amended to read other file formats when importing our dependencies i.e. 
 ```python s=
 import HTML
 import JSON
@@ -227,5 +227,5 @@ import XML
 just to name a few allowing fexibilty over the type of data utilized 
 
 - The code could also be utilized for a number of applications that tally any sort of individualized unique input to output a total final count not only an electoral race but lets say students at a university choosing their favorite meals so that food services can better forecast what to purchase to meet he need of the students
-- alternatively we could also `import datetime` should the resultant output be of a time sensitive nature say in a medical lab setting to measure innoculation times of antibiotics averaging out and returning the fastest working antibiotic on a certain bacteria.
+- Alternatively we could also `import datetime` should the resultant output be of a time sensitive nature say in a medical lab setting to measure inoculation times of antibiotics averaging out and returning the fastest working antibiotic on a certain bacteria.
 
