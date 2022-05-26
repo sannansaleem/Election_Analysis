@@ -1,7 +1,7 @@
 # Election_Analysis
 
 ## Project Overview
-### Purpose
+### <ins> Purpose </ins>
 The following anaylsis generates a vote count report using an automated python loop in order to generate the election audit results so that they maybe submitted to the election commission, whre teh analysis output file genreated displays the following information as requested:
 
    1. The <ins>**total number**</ins> of votes casted.
@@ -15,7 +15,7 @@ The following anaylsis generates a vote count report using an automated python l
    5. The <ins>**winner of the election**</ins> based on popular vote.
    
   
-### Background
+### <ins>Background</ins>
 In order to accomplsh the following task, raw data was collected from the Colarado Preceints in question through the following 3 methods:
   1. <ins>**Mail-in ballots**</ins> - that are initially sent to the central office by eligible voters to then be hand-counted and recorded.
   2. <ins>**Punch cards**</ins>- A traditional analogue way of collecting votes using an automated teller to tally, record, and transmit the data 
@@ -32,10 +32,10 @@ Once all the votes ahd been casted, tallied, and officially recorded, a .csv fil
 had been created so that further back end processing using **python script** could be done with ease with VS Code being the IDE (Integrated Development Environment (IDE) of choice. A [copy](resources/election_results.csv) of the elction data used can be found following the specified link, while the final results were written on a .txt file that can be found [here](Analysis/election_results.txt)
 
 
-## Results
+## <ins>Results</ins>
 The final results as provided by the script into the [election_analysis.txt](analysis/election_results.txt) can be summarized into two sections, by candidate and then by county, and are summarized below:
 
-### By Candidate
+### <ins>By Candidate</ins>
 - The quiantitative analysis of the electorial cadidates shows:
   - There were **369,711** votes cast in the election.
 - The electorial candidates who ran for a position were:
@@ -48,7 +48,7 @@ The final results as provided by the script into the [election_analysis.txt](ana
     - Raymon Anthony Doane received **11,606%** vote implying a **3.1%** voter share.
 - The winner of the election decisivly being <ins>**Diana DeGette**</ins>
 
-### By County
+### <ins>By County</ins>
 - A quantitavie analysis of the electorial resuls by counts shows us that:
 - The counties results were:
     - Jefferson with a **10.5%** voter turnout of the total count and an accumulated **38,855** votes having been casted.
@@ -64,8 +64,8 @@ The final output as displayed by the [election_analysis.txt](analysis/election_r
 <img src="resources/txt_output.png" width="30%" height="30%"> 
 </p>
 
-### Overview of the methods and code
-#### Open, read & write the file
+### <ins>Overview of the methods and code</ins>
+#### <ins>Open, read & write the file</ins>
 In order to get started with the .csv file in our IDE, we must first open and read the data as well as create a seperate writable file in order to store our output results.
 
 ***1. Import dependencies.***
@@ -148,8 +148,7 @@ Code to open and write to a file (Note: *total_votes* shows up as an error as th
 <img src="resources/write_file.png" width="60%" height="60%"> 
 </p>
 
-#### Looping through dictionaries and the lists
-In order to correctly retrieve elements, i.e. looping through specific data sets, it is essential to know their properties. Lists are mutable and ordered (indexing is possible). Dictionaries are mutable and unordered (indexing is not possible). Dictionary keys are immutable and has to be unique, while values are more flexible and can be mutable.
+#### <ins>Looping through dictionaries and the lists</ins>
 <p align="center">
 <img src="resources/if_statement1.png" width="33.5%" height="">  <img src="resources/if_statement2.png" width="40%" height=""> 
 </p>
@@ -171,9 +170,9 @@ Click to enlarge images
         # Add a vote to that candidate's count
         candidate_votes[candidate_name] += 1
 ```
-The script above was used to itterate through rows *both* when accumulating results for cadidate and county replacing the neccessary variables as needed (refer to images for python script)
+The script above was used to itterate through rows *both* when accumulating results for cadidate and county replacing the neccessary variables as needed (refer to images for python script). The pyton script makes use of both lists and dictionaries as due to the difference in their properties where the differ in terms of mutability and indexing i.e. lists are ordered (indexed) whereas dictionalries are not 
 
-#### Retrieving values 
+#### <ins>Retrieving values </ins>
 
 There are two ways to retrive values from a dictionary using theier unique keys. The utilization of either syntax - **"square brackets"** or  **"get()" function** - While each code makes use of different variables in order to analyze a different scenario, the variables are replacable whereas the syntax stands. Use of either of the syntax's return the same result ceteris paribus but the use case is scenario dependant e.g should you expect an error when running your retreival, he get() funtion returns "None" or a default value of your choice, if the key is not found and so may prove easier to debug in the long run:
 
@@ -189,7 +188,7 @@ for county_name in county_dict:
     county = county_dict.get(county_name)
 ```
 
-### Finding a winner
+### <ins>Finding a winner</ins>
 
 Determine winning vote count, winning percentage, and candidate:
 ```python s=
@@ -205,7 +204,7 @@ if (county > winning_county) and (county_percentage > county_finalist_percentage
 
 All variables were previously created and initialized either as an integer or string. The script starts an if statement comparing individual values against each other such that if the condition holds true, the initialized variable then holds the *New highest value* and then passed down to the new variables `winning_count` `winning_candidate` ` winning_percentage` ` winning_county` ` county_finalist`.
 
-## Summary 
+## <ins>Summary </ins>
 The Written script analyzes and examines the data quickly and effeciently demonstrating the power in automation using python scripture processing and returning final results for the electiorial race in Colarado. 
 
 This code will automatically:
